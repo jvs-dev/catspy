@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+#main {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.main__div {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.main__backgroundImage {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+    animation: showOpacity 3s ease 0s;
+}
+
+.main__productPhoto {
+    width: 62%;
+    height: 62%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+.main__productPhoto.load {
+    animation: showToRight 3s cubic-bezier(0.71, 0.49, 0, 1.22) 0s;
+}
+
+.main__div--2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main__alterImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main__alterImageBtn {
+    background: transparent;
+    color: var(--white);
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    border: 0px;
+    outline-width: 0px;
+    font-size: 24px;
+}
+
+.main__alterImageDiv {
+    background: #979797;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.main__alterImageDiv.active {
+    background: var(--white);
+}
+
+.main__midContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.main__seeMore {
+    font-family: "Berkshire Swash", serif;
+    color: var(--white);
+    background: linear-gradient(130deg, #399C84, #114F3C);
+    border: 0px;
+    outline-width: 0px;
+    padding: 6px 48px;
+    border-radius: 10px;
+    color: #F5DDAD;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px 0px 0px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.main__seeMore img {
+    height: 22px;
+    width: auto;
+}
+
+.main__seeMore:hover {
+    transform: scale(1.05);
+}
+
+.main__div--bottomContainer {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    animation: showOpacity 3s ease 0s;
+}
+
+.main__p {
+    font-family: "Poppins", sans-serif;
+    color: var(--white);
+    margin: 30px 0px 0px 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+@keyframes showOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes showToRight {
+    0% {
+        position: absolute;
+        transform: translateX(-100vw);
+    }
+
+    100% {
+        position: absolute;
+        transform: translateX(-0vw);
+    }
+}
