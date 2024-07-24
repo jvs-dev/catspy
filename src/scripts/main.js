@@ -6,7 +6,7 @@ let prevButton = document.getElementById("prevButton")
 let activeImageIndex = 1
 let clicked = false
 let inAnimate = false
-const slideTime = 5000
+const slideTime = 6000
 
 function desactiveAll(translate) {
     productPhoto1.style.transition = "1s ease"

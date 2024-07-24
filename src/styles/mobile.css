@@ -1,0 +1,25 @@
+@media (max-width: 800px) {
+    .header__ul {
+        display: none;
+    }
+
+    .main__backgroundImage {
+        width: 100%;
+        height: auto;
+    }
+
+    .main__div--bottomContainer {
+        bottom: 80px;
+    }
+
+    .header__menuToggle {
+        display: unset;
+    }
+
+    .footer__authors{
+        display: none;
+    }
+    .main__footer {
+        justify-content: center;
+    }
+}
