@@ -4,7 +4,9 @@ let productPhoto3 = document.getElementById("productPhoto3")
 let nextButton = document.getElementById("nextButton")
 let prevButton = document.getElementById("prevButton")
 let activeImageIndex = 1
+let clicked = false
 let inAnimate = false
+const slideTime = 5000
 
 function desactiveAll(translate) {
     productPhoto1.style.transition = "1s ease"
@@ -61,6 +63,7 @@ function activeThis(element, translate) {
 nextButton.onclick = function () {
     if (inAnimate == false) {
         inAnimate = true
+        clicked = true
         desactiveAll("-100vw")
         switch (activeImageIndex) {
             case 1:
@@ -81,12 +84,16 @@ nextButton.onclick = function () {
         setTimeout(() => {
             inAnimate = false
         }, 1000);
+        setTimeout(() => {
+            clicked = false
+        }, slideTime);
     }
 }
 
 prevButton.onclick = function () {
     if (inAnimate == false) {
         inAnimate = true
+        clicked = true
         desactiveAll("100vw")
         switch (activeImageIndex) {
             case 1:
@@ -107,8 +114,39 @@ prevButton.onclick = function () {
         setTimeout(() => {
             inAnimate = false
         }, 1000);
+        setTimeout(() => {
+            clicked = false
+        }, slideTime);
     }
 }
+
+setInterval(() => {
+    if (clicked == false) {
+        if (inAnimate == false) {
+            inAnimate = true
+            desactiveAll("-100vw")
+            switch (activeImageIndex) {
+                case 1:
+                    activeThis(productPhoto2, "100vw")
+                    activeImageIndex = 2
+                    break;
+                case 2:
+                    activeThis(productPhoto3, "100vw")
+                    activeImageIndex = 3
+                    break;
+                case 3:
+                    activeThis(productPhoto1, "100vw")
+                    activeImageIndex = 1
+                    break;
+                default:
+                    break;
+            }
+            setTimeout(() => {
+                inAnimate = false
+            }, 1000);
+        }
+    }
+}, slideTime);
 
 window.addEventListener('load', () => {
     setTimeout(() => {
