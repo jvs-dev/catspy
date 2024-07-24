@@ -59,44 +59,54 @@ function activeThis(element, translate) {
 }
 
 nextButton.onclick = function () {
-    inAnimate = true
-    desactiveAll("-100vw")
-    switch (activeImageIndex) {
-        case 1:
-            activeThis(productPhoto2, "100vw")
-            activeImageIndex = 2
-            break;
-        case 2:
-            activeThis(productPhoto3, "100vw")
-            activeImageIndex = 3
-            break;
-        case 3:
-            activeThis(productPhoto1, "100vw")
-            activeImageIndex = 1
-            break;
-        default:
-            break;
+    if (inAnimate == false) {
+        inAnimate = true
+        desactiveAll("-100vw")
+        switch (activeImageIndex) {
+            case 1:
+                activeThis(productPhoto2, "100vw")
+                activeImageIndex = 2
+                break;
+            case 2:
+                activeThis(productPhoto3, "100vw")
+                activeImageIndex = 3
+                break;
+            case 3:
+                activeThis(productPhoto1, "100vw")
+                activeImageIndex = 1
+                break;
+            default:
+                break;
+        }
+        setTimeout(() => {
+            inAnimate = false
+        }, 1000);
     }
 }
 
 prevButton.onclick = function () {
-    inAnimate = true
-    desactiveAll("100vw")
-    switch (activeImageIndex) {
-        case 1:
-            activeThis(productPhoto3, "-100vw")
-            activeImageIndex = 3
-            break;
-        case 2:
-            activeThis(productPhoto1, "-100vw")
-            activeImageIndex = 1
-            break;
-        case 3:
-            activeThis(productPhoto2, "-100vw")
-            activeImageIndex = 2
-            break;
-        default:
-            break;
+    if (inAnimate == false) {
+        inAnimate = true
+        desactiveAll("100vw")
+        switch (activeImageIndex) {
+            case 1:
+                activeThis(productPhoto3, "-100vw")
+                activeImageIndex = 3
+                break;
+            case 2:
+                activeThis(productPhoto1, "-100vw")
+                activeImageIndex = 1
+                break;
+            case 3:
+                activeThis(productPhoto2, "-100vw")
+                activeImageIndex = 2
+                break;
+            default:
+                break;
+        }
+        setTimeout(() => {
+            inAnimate = false
+        }, 1000);
     }
 }
 
