@@ -3,10 +3,131 @@ let productPhoto2 = document.getElementById("productPhoto2")
 let productPhoto3 = document.getElementById("productPhoto3")
 let nextButton = document.getElementById("nextButton")
 let prevButton = document.getElementById("prevButton")
+let alterImageCircle1 = document.getElementById("alterImageCircle1")
+let alterImageCircle2 = document.getElementById("alterImageCircle2")
+let alterImageCircle3 = document.getElementById("alterImageCircle3")
 let activeImageIndex = 1
 let clicked = false
 let inAnimate = false
 const slideTime = 6000
+
+alterImageCircle1.onclick = function () {
+    if (inAnimate == false) {
+        inAnimate = true
+        clicked = true
+        desactiveAll("-100vw")
+        activeImageIndex = 3
+        switch (activeImageIndex) {
+            case 1:
+                activeThis(productPhoto2, "100vw")
+                activeImageIndex = 2
+                break;
+            case 2:
+                activeThis(productPhoto3, "100vw")
+                activeImageIndex = 3
+                break;
+            case 3:
+                activeThis(productPhoto1, "100vw")
+                activeImageIndex = 1
+                break;
+            default:
+                break;
+        }
+        updateCircles()
+        setTimeout(() => {
+            inAnimate = false
+        }, 1000);
+        setTimeout(() => {
+            clicked = false
+        }, slideTime);
+    }
+}
+
+alterImageCircle2.onclick = function () {
+    if (inAnimate == false) {
+        inAnimate = true
+        clicked = true
+        desactiveAll("-100vw")
+        activeImageIndex = 1
+        switch (activeImageIndex) {
+            case 1:
+                activeThis(productPhoto2, "100vw")
+                activeImageIndex = 2
+                break;
+            case 2:
+                activeThis(productPhoto3, "100vw")
+                activeImageIndex = 3
+                break;
+            case 3:
+                activeThis(productPhoto1, "100vw")
+                activeImageIndex = 1
+                break;
+            default:
+                break;
+        }
+        updateCircles()
+        setTimeout(() => {
+            inAnimate = false
+        }, 1000);
+        setTimeout(() => {
+            clicked = false
+        }, slideTime);
+    }
+}
+
+alterImageCircle3.onclick = function () {
+    if (inAnimate == false) {
+        inAnimate = true
+        clicked = true
+        desactiveAll("-100vw")
+        activeImageIndex = 2
+        switch (activeImageIndex) {
+            case 1:
+                activeThis(productPhoto2, "100vw")
+                activeImageIndex = 2
+                break;
+            case 2:
+                activeThis(productPhoto3, "100vw")
+                activeImageIndex = 3
+                break;
+            case 3:
+                activeThis(productPhoto1, "100vw")
+                activeImageIndex = 1
+                break;
+            default:
+                break;
+        }
+        updateCircles()
+        setTimeout(() => {
+            inAnimate = false
+        }, 1000);
+        setTimeout(() => {
+            clicked = false
+        }, slideTime);
+    }
+}
+
+function updateCircles() {
+    switch (activeImageIndex) {
+        case 1:
+            alterImageCircle1.classList.add("active")
+            alterImageCircle2.classList.remove("active")
+            alterImageCircle3.classList.remove("active")
+            break;
+        case 2:
+            alterImageCircle1.classList.remove("active")
+            alterImageCircle2.classList.add("active")
+            alterImageCircle3.classList.remove("active")
+            break;
+        case 3:
+            alterImageCircle1.classList.remove("active")
+            alterImageCircle2.classList.remove("active")
+            alterImageCircle3.classList.add("active")
+            break;
+        default:
+            break;
+    }
+}
 
 function desactiveAll(translate) {
     productPhoto1.style.transition = "1s ease"
@@ -81,6 +202,7 @@ nextButton.onclick = function () {
             default:
                 break;
         }
+        updateCircles()
         setTimeout(() => {
             inAnimate = false
         }, 1000);
@@ -111,6 +233,7 @@ prevButton.onclick = function () {
             default:
                 break;
         }
+        updateCircles()
         setTimeout(() => {
             inAnimate = false
         }, 1000);
